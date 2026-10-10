@@ -1089,6 +1089,7 @@ form.done .form__ok{display:block}
 /* Loading and no-JS states (pages are rendered by script into <main>) */
 .boot{min-height:70vh;min-height:70svh;display:grid;place-content:center;justify-items:center;gap:1rem;padding:8rem var(--gutter) 6rem;text-align:center;background:var(--green-950);color:var(--on-dark-soft)}
 .boot p{max-width:26rem;margin:0}
+.boot .boot__hint{font-size:.82rem;opacity:.7;margin-top:1.5rem}
 .boot__star{width:34px;height:34px;background:var(--candle);clip-path:polygon(50% 0,62% 38%,100% 50%,62% 62%,50% 100%,38% 62%,0 50%,38% 38%);animation:bootspin 2.4s linear infinite}
 @keyframes bootspin{to{transform:rotate(360deg)}}
 
@@ -1367,8 +1368,15 @@ form.done .form__ok{display:block}
 
 <main id="main">
 <!-- Pages are rendered here by the router. This placeholder is replaced on first render. -->
-<div class="boot" role="status"><span class="boot__star" aria-hidden="true"></span><p>Loading Santa's workshop…</p></div>
+<div class="boot" role="status"><span class="boot__star" aria-hidden="true"></span><p>Loading Santa's workshop…</p><p class="boot__hint">Still seeing this? File previews (Files, Mail, Messages) can't run this site. Open it from a web link in Safari or Chrome, or contact hello@hohoho.mt · +356 7900 2512.</p></div>
 <noscript><div class="boot"><p>This site needs JavaScript to show its pages. Please turn JavaScript on, or open the site in another browser.</p></div></noscript>
+<script>
+/* Runs before the big scripts so any failure is shown on screen instead of leaving a blank page */
+window.addEventListener('error', function (e) {
+  var b = document.querySelector('.boot p'); if (!b) return;
+  b.textContent = 'Something went wrong while loading: ' + (e && e.message ? e.message : 'script error') + (e && e.lineno ? ' (line ' + e.lineno + ')' : '');
+});
+</script>
 </main>
 
 <!-- ════════════════════════════════════════════════ FOOTER -->
