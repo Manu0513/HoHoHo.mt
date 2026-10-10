@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" rel="stylesheet">
 <script>
 (function(d){var r=d.documentElement;
  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){r.classList.add('is-loading');
@@ -57,7 +57,7 @@
   --pine-800:#0B2315;
   --pine-700:#0F2E1C;
   --pine-600:#143C24;
-  --pine-500:#1B4629;
+  --pine-500:#1D4529;
   --pine-400:#245C36;
 
   --red-950:#2E0809;
@@ -76,7 +76,7 @@
   --gold-100:#F7EFD6;
 
   --snow:#FFFBF0;
-  --cream:#FAF0D1;
+  --cream:#F9EDCF;
   --sand:#E6D6AE;
   --frost:#C6D8CE;
   --mist:rgba(252,249,243,.62);
@@ -91,8 +91,11 @@
   --line-soft:rgba(252,249,243,.12);
 
   /* Type */
-  --font-display:"Cormorant Garamond","Cormorant","Iowan Old Style","Apple Garamond",Garamond,"Times New Roman",serif;
-  --font-body:"Inter","Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  /* Brand guidelines: titles in Montserrat Black, body in Montserrat Regular,
+     decorative accents (italics, numerals, quotes) in Garamond Regular. */
+  --font-title:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --font-display:"EB Garamond","Cormorant Garamond","Iowan Old Style","Apple Garamond",Garamond,"Times New Roman",serif;
+  --font-body:"Montserrat","Helvetica Neue",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
 
   --fs-hero:clamp(3.1rem,9.2vw,8.6rem);
   --fs-display:clamp(2.5rem,5.6vw,5rem);
@@ -142,7 +145,7 @@ body{
   font-family:var(--font-body);
   font-size:var(--fs-body);
   line-height:1.68;
-  font-weight:350;
+  font-weight:400;
   letter-spacing:.005em;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -170,9 +173,9 @@ hr{border:0;border-top:1px solid var(--line-soft);margin:0}
 
 /* --------------------------------------------------------- 3. TYPOGRAPHY */
 h1,h2,h3,h4,h5{
-  font-family:var(--font-display);
-  font-weight:500;
-  line-height:1.03;
+  font-family:var(--font-title);
+  font-weight:800;
+  line-height:1.05;
   margin:0;
   letter-spacing:-.015em;
   color:var(--snow);
@@ -180,11 +183,11 @@ h1,h2,h3,h4,h5{
 h1{font-size:var(--fs-display)}
 h2{font-size:var(--fs-h2)}
 h3{font-size:var(--fs-h3)}
-h4{font-size:var(--fs-h4);font-family:var(--font-body);font-weight:500;letter-spacing:.01em;line-height:1.4}
+h4{font-size:var(--fs-h4);font-family:var(--font-body);font-weight:700;letter-spacing:.01em;line-height:1.4}
 p{margin:0 0 1.1em}
 p:last-child{margin-bottom:0}
 
-.italic-gold{font-style:italic;color:var(--gold-400)}
+.italic-gold{font-family:var(--font-display);font-style:italic;font-weight:500;color:var(--gold-400)}
 .serif{font-family:var(--font-display)}
 
 .eyebrow{
@@ -253,7 +256,7 @@ p:last-child{margin-bottom:0}
 .section--flush-bottom{padding-bottom:0}
 .section--alt{background:var(--pine-900)}
 .section--cream{background:var(--cream);color:var(--pine-900)}
-.section--cream h1,.section--cream h2,.section--cream h3{color:var(--pine-900)}
+.section--cream h1,.section--cream h2,.section--cream h3,.section--cream h4{color:var(--pine-900)}
 .section--cream .lead,.section--cream .muted{color:rgba(7,17,8,.66)}
 .section--cream .eyebrow{color:var(--gold-700)}
 .section--cream .faint{color:rgba(7,17,8,.45)}
@@ -882,6 +885,47 @@ body:has(.ribbon) .site-header{top:33px}
 .stat .n{font-family:var(--font-display);font-size:clamp(2.4rem,4.4vw,3.7rem);line-height:1;color:var(--gold-300);display:block}
 .stat .l{font-size:var(--fs-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-top:.55rem;display:block}
 
+/* ------------------------------------------------- 13b. SERVICE ICON GRID */
+.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.9rem,1.6vw,1.3rem)}
+.icon-tile{
+  position:relative;display:flex;flex-direction:column;align-items:center;gap:.85rem;
+  text-align:center;padding:clamp(1.5rem,2.4vw,2rem) 1.1rem;
+  border:1px solid var(--line-soft);border-radius:var(--radius-lg);
+  background:rgba(7,17,8,.4);
+  transition:border-color .5s var(--ease),transform .6s var(--ease-out-expo),background .5s var(--ease);
+}
+.icon-tile:hover{border-color:rgba(201,162,39,.4);transform:translateY(-4px);background:rgba(29,69,41,.4)}
+.icon-tile__icon{
+  width:52px;height:52px;border-radius:50%;flex:0 0 auto;
+  display:grid;place-items:center;color:var(--gold-300);
+  border:1px solid rgba(201,162,39,.35);background:rgba(201,162,39,.08);
+}
+.icon-tile__icon svg{width:24px;height:24px}
+.icon-tile h4{font-size:.92rem;margin:0;line-height:1.3}
+.icon-tile__note{display:block;font-size:.7rem;font-weight:500;color:var(--gold-600);margin-top:.3rem;letter-spacing:.02em}
+.section--cream .icon-tile__note{color:var(--red-900)}
+.section--cream .icon-tile{background:rgba(255,255,255,.5);border-color:rgba(7,17,8,.12)}
+.section--cream .icon-tile:hover{background:var(--snow);border-color:rgba(90,19,21,.3)}
+.section--cream .icon-tile__icon{color:var(--red-900);border-color:rgba(90,19,21,.3);background:rgba(90,19,21,.06)}
+
+/* ---------------------------------------------------------- 13c. B2B GRID */
+.btob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2vw,1.5rem)}
+.btob-card{
+  position:relative;padding:clamp(1.8rem,2.6vw,2.4rem) clamp(1.4rem,2vw,1.9rem);
+  border:1px solid rgba(7,17,8,.12);border-radius:var(--radius-lg);
+  background:rgba(255,255,255,.55);
+  transition:border-color .5s var(--ease),transform .6s var(--ease-out-expo),box-shadow .5s var(--ease);
+}
+.btob-card:hover{border-color:rgba(90,19,21,.35);transform:translateY(-4px);box-shadow:var(--shadow-soft)}
+.btob-card__icon{
+  width:46px;height:46px;border-radius:50%;margin-bottom:1.1rem;
+  display:grid;place-items:center;color:var(--red-900);
+  border:1px solid rgba(90,19,21,.3);background:rgba(90,19,21,.06);
+}
+.btob-card__icon svg{width:22px;height:22px}
+.btob-card h4{font-size:1.02rem;margin-bottom:.4rem}
+.btob-card p{font-size:.86rem;margin:0}
+
 .quote-block{
   position:relative;padding:clamp(2rem,4vw,3.4rem);
   border:1px solid var(--line);border-radius:var(--radius-lg);
@@ -1241,6 +1285,21 @@ body:has(.ribbon) .site-header{top:33px}
 .cta-band__scrim{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,var(--pine-950),rgba(92,16,23,.55) 50%,var(--pine-950))}
 .cta-band h2{font-size:var(--fs-h2);margin-bottom:1.2rem;text-wrap:balance;max-width:900px;margin-inline:auto}
 
+/* A plain-colour CTA band (brand red) for mid-page calls to action that
+   don't need a photographic background. */
+.cta-simple{
+  position:relative;overflow:hidden;isolation:isolate;text-align:center;
+  padding-block:clamp(3.5rem,7vw,5.5rem);
+  background:linear-gradient(160deg,var(--red-900),var(--red-950) 120%);
+}
+.cta-simple::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(120% 140% at 50% 0%,rgba(249,237,207,.1),transparent 60%);
+}
+.cta-simple h2{font-size:var(--fs-h2);margin-bottom:1.2rem;text-wrap:balance;max-width:900px;margin-inline:auto;color:var(--cream)}
+.cta-simple .lead{color:rgba(249,237,207,.8)}
+.cta-simple .eyebrow{color:var(--gold-300)}
+
 .site-footer{background:var(--pine-950);border-top:1px solid var(--line);padding-top:clamp(3rem,6vw,5rem)}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.4fr;gap:clamp(1.6rem,3vw,3rem);padding-bottom:3rem}
 .footer-col h5{font-size:var(--fs-xs);letter-spacing:.24em;text-transform:uppercase;color:var(--gold-400);margin:0 0 1.1rem;font-family:var(--font-body);font-weight:600}
@@ -1321,6 +1380,8 @@ body:has(.ribbon) .site-header{top:33px}
   .stats{grid-template-columns:repeat(2,1fr);gap:0}
   .stat{border:0;border-bottom:1px solid var(--line-soft)}
   .stat:nth-child(odd){border-right:1px solid var(--line-soft)}
+  .icon-grid{grid-template-columns:repeat(2,1fr)}
+  .btob-grid{grid-template-columns:1fr}
   .sticky-cta{display:flex}
   body{padding-bottom:0}
   .opt-grid,.opt-grid--3{grid-template-columns:1fr}
@@ -1343,6 +1404,8 @@ body:has(.ribbon) .site-header{top:33px}
   .exp-card,.exp-card--wide,.exp-card--hero{grid-column:span 6}
   .prod-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
+  .icon-tile{padding:1.2rem .8rem}
+  .icon-tile h4{font-size:.82rem}
   .gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:130px}
   .gallery .g-big{grid-column:span 2;grid-row:span 2}
   .footer-grid{grid-template-columns:1fr}
@@ -1686,16 +1749,14 @@ main,.site-header,.site-footer{transition:opacity .7s var(--ease)}
 <div class="route is-active" id="route-index">
 
 
-<!-- ══════════════════════════════════════════════ HERO -->
+<!-- ══════════════════════════════════════════════ 1. HERO -->
 <section class="hero">
   <div class="hero__media" aria-hidden="true">
     <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1727535622444-9fb6e2d452c9?auto=format&fit=crop&w=2200&q=80')"></div>
-    <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1674859146251-53c7c74a76fd?auto=format&fit=crop&w=2200&q=80')"></div>
-    <div class="hero__slide" style="background-image:url('https://images.unsplash.com/photo-1765782591268-3c5f6c11b61a?auto=format&fit=crop&w=2200&q=80')"></div>
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="hero__vignette" aria-hidden="true"></div>
-  <div class="star-field" data-stars="34" aria-hidden="true"></div>
+  <div class="star-field" data-stars="18" aria-hidden="true"></div>
 
   <div class="hero__inner">
     <div class="hero__grid">
@@ -1706,42 +1767,70 @@ main,.site-header,.site-footer{transition:opacity .7s var(--ease)}
           <span class="line"><span>Santa knows</span></span>
           <span class="line"><span class="accent">your name.</span></span>
         </h1>
-        <p class="lead hero__lead">Real sleigh bells at the door. A letter with your child’s handwriting answered. A film made for one family only. We have been bringing Santa to Maltese homes, schools and boardrooms since 2009 — and every visit is written for the people in the room.</p>
+        <p class="lead hero__lead">Real sleigh bells at the door. A letter in your child’s own handwriting, answered. Santa has been visiting Maltese homes, schools and offices since 2009.</p>
         <div class="cta-row">
           <a class="btn btn--gold btn--lg" href="book.html" data-magnetic="0.28">
             Book Santa
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a class="btn btn--ghost btn--lg" href="experiences.html" data-magnetic="0.24">Explore Santa experiences</a>
+          <a class="btn btn--ghost btn--lg" href="experiences.html" data-magnetic="0.24">Explore experiences</a>
         </div>
       </div>
-
-      <aside class="hero__aside">
-        <div class="hero__stat"><span class="n"><span data-count="17">0</span></span><span class="l">Christmases</span></div>
-        <div class="hero__stat"><span class="n"><span data-count="4200" data-suffix="+">0</span></span><span class="l">Visits delivered</span></div>
-        <div class="hero__stat"><span class="n">4.9<span class="faint" style="font-size:1.1rem">/5</span></span><span class="l">Family rating</span></div>
-        <p class="faint" style="font-size:.78rem;line-height:1.6">Home visits · Corporate &amp; events · Schools<br>Personalised videos · Letters from Santa</p>
-      </aside>
     </div>
   </div>
 
   <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
 </section>
 
-<!-- ══════════════════════════════════════════════ MARQUEE -->
-<div class="marquee-band" aria-hidden="true">
-  <div class="marquee-band__track">
-    <span>Home Visits</span><span>Corporate Santa</span><span>Schools &amp; Parties</span><span>Personalised Videos</span><span>Letters from Santa</span><span>Good List Certificates</span><span>Christmas Hampers</span>
-    <span>Home Visits</span><span>Corporate Santa</span><span>Schools &amp; Parties</span><span>Personalised Videos</span><span>Letters from Santa</span><span>Good List Certificates</span><span>Christmas Hampers</span>
-  </div>
-</div>
+<!-- ══════════════════════════════════ 2. SERVICES (8 ICONS) -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow eyebrow--center" style="justify-content:center">What Santa brings</p>
+      <h2>Eight ways to<br><span class="italic-gold">let Christmas in</span></h2>
+    </div>
 
-<!-- ══════════════════════════════════════════════ CINEMATIC VIDEO -->
+    <div class="icon-grid" data-reveal>
+      <a class="icon-tile" href="letters.html">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6 8.5 7 8.5-7"/></svg></span>
+        <h4>Letter to &amp; from Santa</h4>
+      </a>
+      <a class="icon-tile" href="letters.html">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M9 12.5 7.5 21l4.5-2.5 4.5 2.5-1.5-8.5"/></svg></span>
+        <h4>Good List Certificate</h4>
+      </a>
+      <a class="icon-tile" href="book.html?experience=video">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M10.5 8.5v7l6-3.5-6-3.5z"/></svg></span>
+        <h4>Video from Santa</h4>
+      </a>
+      <a class="icon-tile" href="book.html?experience=home">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 4.5l8 7"/><path d="M6 10.5V19a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-8.5"/><path d="M10 20v-5h4v5"/></svg></span>
+        <h4>Home visit by Santa<span class="icon-tile__note">Photographer available</span></h4>
+      </a>
+      <a class="icon-tile" href="shop.html">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.8 8.4a2 2 0 0 1-2 1.6H7.8a2 2 0 0 1-2-1.6z"/><path d="M4 10 8 4h8l4 6"/><path d="M12 10V4"/></svg></span>
+        <h4>Hampers</h4>
+      </a>
+      <a class="icon-tile" href="shop.html">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9.5" width="16" height="10.5" rx="1"/><path d="M4 13.5h16"/><path d="M12 9.5v10.5"/><path d="M8.3 9.5c-1.7 0-3-1.2-3-2.8S6.4 4 8 4c2.2 0 4 2.3 4 5.5 0-3.2 1.8-5.5 4-5.5 1.6 0 2.7 1.1 2.7 2.7s-1.3 2.8-3 2.8"/></svg></span>
+        <h4>Toys</h4>
+      </a>
+      <a class="icon-tile" href="shop.html">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4.5" width="15" height="15" rx="2"/><path d="M8.5 9h.01M12 8h.01M15.5 10h.01M9 14h.01M13 15h.01M16 14h.01"/></svg></span>
+        <h4>Brownies</h4>
+      </a>
+      <a class="icon-tile" href="shop.html">
+        <span class="icon-tile__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="4.5" width="15" height="15" rx="1.5" stroke-dasharray="2.4 2.4"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+        <h4>Stamps</h4>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════ 3. VIDEO (90 SEC) -->
 <section class="cinema">
   <div class="cinema__bg" aria-hidden="true">
     <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1543893419-fcc585654853?auto=format&fit=crop&w=2000&q=80')"></div>
-    <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1778745114337-0dc9db92f08b?auto=format&fit=crop&w=2000&q=80')"></div>
-    <div class="frame" style="background-image:url('https://images.unsplash.com/photo-1549227082-0ea18ce30397?auto=format&fit=crop&w=2000&q=80')"></div>
   </div>
   <div class="cinema__scrim" aria-hidden="true"></div>
   <div class="container">
@@ -1751,189 +1840,101 @@ main,.site-header,.site-footer{transition:opacity .7s var(--ease)}
       </button>
       <p class="eyebrow eyebrow--center eyebrow--plain" style="justify-content:center">The film</p>
       <h2>Ninety seconds of the moment<br><span class="italic-gold">they will remember for thirty years.</span></h2>
-      <p class="lead lead--center">The doorbell. The pause. The face. We filmed one December across Malta — living rooms in Naxxar, a school hall in Rabat, a warehouse party in Marsa — and this is what it looks like when Santa says a child’s name out loud.</p>
-    </div>
-  </div>
-  <div class="drift drift--bottom" aria-hidden="true">
-    <svg viewBox="0 0 1440 96" preserveAspectRatio="none"><path d="M0 66c130-28 232 14 358 6 126-9 190-44 316-38 126 5 200 46 336 38 136-9 250-48 370-32 60 8 60 18 60 18v40H0Z" fill="#040906"/></svg>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════ EXPERIENCES -->
-<section class="section" id="experiences">
-  <div class="glow glow--gold" style="width:520px;height:520px;top:-8%;right:-8%" aria-hidden="true"></div>
-  <div class="container">
-    <div class="section-head section-head--split">
-      <div data-reveal>
-        <p class="eyebrow">Santa experiences</p>
-        <h2>Five ways to let<br>Christmas <span class="italic-gold">find you</span></h2>
-      </div>
-      <p class="lead" data-reveal data-delay="1">Every experience is written around real names, real details and the things only your family knows. Choose the one that fits your December.</p>
-    </div>
-
-    <div class="exp-grid">
-      <article class="exp-card exp-card--wide" data-reveal>
-        <div class="exp-card__img" style="background-image:url('https://images.unsplash.com/photo-1511600173735-a896042389cf?auto=format&fit=crop&w=1400&q=80')"></div>
-        <div class="exp-card__scrim"></div><div class="exp-card__frame"></div>
-        <div class="exp-card__top"><span class="badge">Most requested</span><span class="badge badge--red">Christmas Eve filling fast</span></div>
-        <h3>Santa Home Visits</h3>
-        <p>Sleigh bells outside the door, a sack with your child’s name on the label, a story by the tree and a photograph you will keep on the fridge until March.</p>
-        <div class="exp-card__foot">
-          <span class="price-from">From <strong>€85</strong></span>
-          <a class="link-underline" href="book.html?experience=home">Book a home visit <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-      <article class="exp-card exp-card--wide" data-reveal data-delay="1">
-        <div class="exp-card__img" style="background-image:url('https://images.unsplash.com/photo-1758520144658-c87be518b87e?auto=format&fit=crop&w=1400&q=80')"></div>
-        <div class="exp-card__scrim"></div><div class="exp-card__frame"></div>
-        <div class="exp-card__top"><span class="badge badge--snow">For teams &amp; venues</span></div>
-        <h3>Corporate &amp; Event Santa</h3>
-        <p>Staff parties, client evenings, shopping centres and light switch-ons. Santa arrives briefed on your company, your people and the gifts you want handed out.</p>
-        <div class="exp-card__foot">
-          <span class="price-from">From <strong>€250</strong></span>
-          <a class="link-underline" href="book.html?experience=corporate">Enquire for events <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-      <article class="exp-card" data-reveal>
-        <div class="exp-card__img" style="background-image:url('https://images.unsplash.com/photo-1759409972704-1ad86e5a62cf?auto=format&fit=crop&w=1000&q=80')"></div>
-        <div class="exp-card__scrim"></div><div class="exp-card__frame"></div>
-        <h3>Schools &amp; Parties</h3>
-        <p>Class-by-class rounds, whole-school assemblies and birthday parties, with a gift for every child.</p>
-        <div class="exp-card__foot">
-          <span class="price-from">From <strong>€180</strong></span>
-          <a class="link-underline" href="book.html?experience=school">Book <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-      <article class="exp-card" data-reveal data-delay="1">
-        <div class="exp-card__img" style="background-image:url('https://images.unsplash.com/photo-1729022290355-a827837225a1?auto=format&fit=crop&w=1000&q=80')"></div>
-        <div class="exp-card__scrim"></div><div class="exp-card__frame"></div>
-        <div class="exp-card__top"><span class="badge">Delivered in 72h</span></div>
-        <h3>Personalised Santa Videos</h3>
-        <p>A film made for one child, one family or one team — names, details and a Good List moment.</p>
-        <div class="exp-card__foot">
-          <span class="price-from">From <strong>€24.99</strong></span>
-          <a class="link-underline" href="book.html?experience=video">Order <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
-
-      <article class="exp-card" data-reveal data-delay="2">
-        <div class="exp-card__img" style="background-image:url('https://images.unsplash.com/photo-1780536890742-a3d937535d66?auto=format&fit=crop&w=1000&q=80')"></div>
-        <div class="exp-card__scrim"></div><div class="exp-card__frame"></div>
-        <h3>Letters &amp; the Good List</h3>
-        <p>Hand-finished letters, wax seals and gold-foiled certificates, posted from the workshop.</p>
-        <div class="exp-card__foot">
-          <span class="price-from">From <strong>€12.99</strong></span>
-          <a class="link-underline" href="letters.html">Discover <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-        </div>
-      </article>
+      <p class="lead lead--center">The doorbell. The pause. The face. Filmed one December across Malta — this is what it looks like when Santa says a child’s name out loud.</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ BOOKING TEASER -->
-<section class="section section--alt" id="how">
-  <div class="container">
-    <div class="split split--reverse">
-      <div class="split__media split__media--stack" data-reveal="right">
-        <span class="mask-reveal rounded depth-frame" style="display:block">
-          <img src="https://images.unsplash.com/photo-1544428000-5b622c57fcd4?auto=format&fit=crop&w=1200&q=80" alt="Wrapped presents under a Christmas tree beside a lit fireplace" loading="lazy">
-        </span>
-        <div class="split__img-2">
-          <img src="https://images.unsplash.com/photo-1481481525014-91e77115eace?auto=format&fit=crop&w=700&q=80" alt="A small child meeting Santa Claus" loading="lazy">
-        </div>
-        <span class="orn orn--tl" aria-hidden="true">
-          <svg viewBox="0 0 220 100" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M6 94C46 86 92 68 128 44 150 30 176 16 214 8"/><path d="M26 88l-6-16M26 88l16-4M50 79l-5-17M50 79l17-5M75 68l-4-18M75 68l17-6M100 55l-3-18M100 55l18-6M126 41l-2-18M126 41l18-5M152 29l-1-18M152 29l18-4M178 19v-17M178 19l18-3"/></svg>
-        </span>
-      </div>
-      <div class="split__body" data-reveal="left">
-        <p class="eyebrow">Booking Santa</p>
-        <h2>Four minutes to book.<br><span class="italic-gold">A lifetime to remember.</span></h2>
-        <p class="lead">No forms that feel like paperwork. Our booking journey asks only what Santa actually needs to know — then it disappears and lets you get on with December.</p>
-        <div class="steps mt-3" style="grid-template-columns:repeat(2,1fr)">
-          <div class="step"><h4>Choose the experience</h4><p>Home, corporate, school, video or letter — with the packages that fit.</p></div>
-          <div class="step"><h4>Pick a date &amp; time</h4><p>Live December calendar with Christmas Eve slots flagged.</p></div>
-          <div class="step"><h4>Add the magic</h4><p>Photographer, snow moment, elf assistant, wrapped gifts, Good List scroll.</p></div>
-          <div class="step"><h4>Tell Santa the details</h4><p>Names, ages, the dog, the school, the thing they’re proud of this year.</p></div>
-        </div>
-        <div class="cta-row mt-3">
-          <a class="btn btn--gold" href="book.html">Start your booking <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-          <a class="btn btn--outline-gold" href="faq.html">Read the FAQs</a>
-        </div>
-      </div>
+<!-- ══════════════════════════════════════ 4. CALL TO ACTION -->
+<section class="cta-simple">
+  <div class="container container--narrow">
+    <p class="eyebrow eyebrow--center" style="justify-content:center" data-reveal>Christmas 2026</p>
+    <h2 data-reveal data-delay="1">There are only<br><span class="italic-gold">twenty-four evenings</span> in December.</h2>
+    <p class="lead lead--center mt-2" data-reveal data-delay="2">Christmas Eve slots go quickly. Book a visit, order a film, or send a letter — Santa is taking the diary out now.</p>
+    <div class="cta-row cta-row--center mt-3" data-reveal data-delay="3">
+      <a class="btn btn--gold btn--lg" href="book.html">Book Santa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a class="btn btn--ghost btn--lg" href="shop.html">Shop Christmas gifts</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ VIDEOS & LETTERS -->
+<!-- ══════════════════════════════════════════════ 5. BTOB -->
+<section class="section section--cream">
+  <div class="container container--narrow">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow eyebrow--center" style="justify-content:center">For schools &amp; companies</p>
+      <h2>BtoB</h2>
+    </div>
+    <div class="btob-grid" data-reveal>
+      <a class="btob-card" href="book.html?experience=school">
+        <span class="btob-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V7l8-3 8 3v12"/><path d="M9 19v-6h6v6"/><path d="M4 19h16"/></svg></span>
+        <h4>School Events<span class="icon-tile__note">Photographer available</span></h4>
+        <p>Class-by-class rounds and whole-school assemblies, with a gift for every child.</p>
+      </a>
+      <a class="btob-card" href="book.html?experience=school-photos">
+        <span class="btob-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2.5h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/></svg></span>
+        <h4>School Photos</h4>
+        <p>A photographer alongside Santa, with class and individual portraits ready before the holidays.</p>
+      </a>
+      <a class="btob-card" href="book.html?experience=corporate">
+        <span class="btob-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l6-4 6 4v12"/><path d="M16 21v-8l4 2v6"/><path d="M9 21v-4h2v4"/></svg></span>
+        <h4>Corporate Events<span class="icon-tile__note">Photographer available</span></h4>
+        <p>Staff parties, client evenings and shopping centres, briefed on your company and your people.</p>
+      </a>
+    </div>
+    <div class="cta-row cta-row--center mt-4" data-reveal>
+      <a class="btn btn--outline-gold" href="book.html?experience=corporate">Enquire for your school or company</a>
+    </div>
+  </div>
+</section>
+
+<!--
+  ────────────────────────────────────────────────────────────────────────────
+  PLACEHOLDER CONTENT: the three testimonials below are sample copy written to
+  show the layout. Replace them with real, attributable customer reviews before
+  this site goes live.
+  ────────────────────────────────────────────────────────────────────────────
+-->
+<!-- ══════════════════════════════════════ 6. TESTIMONIALS 2027 -->
 <section class="section">
-  <div class="glow glow--red" style="width:600px;height:600px;bottom:-14%;left:-12%" aria-hidden="true"></div>
   <div class="container">
     <div class="section-head section-head--center" data-reveal>
-      <p class="eyebrow eyebrow--center" style="justify-content:center">Personalised by Santa</p>
-      <h2>For the ones he can’t<br>reach <span class="italic-gold">in person</span></h2>
-      <p class="lead lead--center">Grandchildren abroad. A team of forty. A friend who needs a laugh. Santa writes, films and seals these himself.</p>
+      <p class="eyebrow eyebrow--center" style="justify-content:center">Family &amp; client stories</p>
+      <h2>Testimonials<br><span class="italic-gold">2027</span></h2>
     </div>
-
-    <div class="split">
-      <div class="split__media" data-reveal="left">
-        <span class="mask-reveal rounded depth-frame" style="display:block">
-          <img src="https://images.unsplash.com/photo-1729022290355-a827837225a1?auto=format&fit=crop&w=1200&q=80" alt="Santa Claus seated, ready to record a personalised message" loading="lazy">
-        </span>
-      </div>
-      <div class="split__body" data-reveal="right">
-        <span class="badge">Delivered in 72 hours</span>
-        <h3 class="mt-2" style="font-size:var(--fs-h2)">Personalised Santa videos</h3>
-        <p class="lead">Tell us their name, their age, what they’ve been brilliant at and the one thing they’re hoping for. Santa films it in his study — no templates, no name dropped into a gap.</p>
-        <ul class="stack-sm mt-2 muted" style="font-size:.94rem">
-          <li>· Classic message — one recipient, 60–90 seconds — <span class="gold">€24.99</span></li>
-          <li>· Deluxe message — up to three names, Good List moment — <span class="gold">€39.99</span></li>
-          <li>· The Family Film — whole family or full team, 4–5 minutes — <span class="gold">€59.99</span></li>
-        </ul>
-        <div class="tag-list"><span class="tag">HD download</span><span class="tag">Maltese or English</span><span class="tag">Corporate versions</span><span class="tag">Rush 24h available</span></div>
-        <div class="cta-row mt-3">
-          <a class="btn btn--gold" href="book.html?experience=video">Order a Santa video</a>
+    <div class="testi-grid">
+      <figure class="testi" data-reveal>
+        <div class="testi__stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
         </div>
-      </div>
-    </div>
-
-    <hr class="rule-gold" style="margin-block:clamp(3rem,7vw,6rem)">
-
-    <div class="split split--reverse">
-      <div class="split__media split__media--stack" data-reveal="right">
-        <span class="mask-reveal rounded depth-frame" style="display:block">
-          <img src="https://images.unsplash.com/photo-1646442064656-1f5442f906d3?auto=format&fit=crop&w=1200&q=80" alt="A hand-written letter close up" loading="lazy">
-        </span>
-        <div class="split__img-2">
-          <img src="https://images.unsplash.com/photo-1514192631-251f5f0b14f2?auto=format&fit=crop&w=700&q=80" alt="A gift tag reading made in Santa's workshop" loading="lazy">
+        <blockquote>Sample review copy — replace before launch. Ideal length is two or three sentences about the moment the visit landed.</blockquote>
+        <figcaption class="testi__who"><span class="testi__avatar">A</span><span><span class="testi__name">Customer name</span><span class="testi__meta">Home visit · Locality</span></span></figcaption>
+      </figure>
+      <figure class="testi" data-reveal data-delay="1">
+        <div class="testi__stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
         </div>
-      </div>
-      <div class="split__body" data-reveal="left">
-        <span class="badge">Posted from the workshop</span>
-        <h3 class="mt-2" style="font-size:var(--fs-h2)">Letters from Santa &amp; the Good List</h3>
-        <p class="lead">Cotton paper. Real ink. A wax seal pressed by hand and a North Pole postmark. For the child who checks the letterbox every morning in December.</p>
-        <ul class="stack-sm mt-2 muted" style="font-size:.94rem">
-          <li>· The Classic Letter — personalised, sealed, posted in 3 days — <span class="gold">€14.99</span></li>
-          <li>· Good List Certificate — gold-foiled, ready to frame — <span class="gold">€12.99</span></li>
-          <li>· The Deluxe Parcel — letter, certificate, reindeer food, sleigh ticket — <span class="gold">€29.99</span></li>
-        </ul>
-        <div class="cta-row mt-3">
-          <a class="btn btn--outline-gold" href="letters.html">See the letter collection</a>
+        <blockquote>Sample review copy — replace before launch. A corporate client quote works well in this middle position.</blockquote>
+        <figcaption class="testi__who"><span class="testi__avatar">B</span><span><span class="testi__name">Customer name</span><span class="testi__meta">Corporate event · Company</span></span></figcaption>
+      </figure>
+      <figure class="testi" data-reveal data-delay="2">
+        <div class="testi__stars" aria-label="5 out of 5">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
         </div>
-      </div>
+        <blockquote>Sample review copy — replace before launch. A personalised video or letter review completes the set.</blockquote>
+        <figcaption class="testi__who"><span class="testi__avatar">C</span><span><span class="testi__name">Customer name</span><span class="testi__meta">Santa video · Location</span></span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════ HAMPERS -->
+<!-- ══════════════════════════════════ 7. CHRISTMAS STORE -->
 <section class="section section--alt" id="shop">
   <div class="container">
     <div class="section-head section-head--split">
       <div data-reveal>
         <p class="eyebrow">Limited Christmas collection</p>
-        <h2>Santa’s Christmas<br><span class="italic-gold">Selection</span></h2>
+        <h2>Christmas<br><span class="italic-gold">Store</span></h2>
       </div>
       <p class="lead" data-reveal data-delay="1">Nine hampers and gifts, curated once a year and made in small runs. When a batch is gone, it is gone until next Christmas.</p>
     </div>
@@ -1989,189 +1990,6 @@ main,.site-header,.site-footer{transition:opacity .7s var(--ease)}
 
     <div class="cta-row cta-row--center mt-4" data-reveal>
       <a class="btn btn--ghost btn--lg" href="shop.html">See the full Christmas collection</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════ HOW IT WORKS -->
-<section class="section">
-  <div class="container">
-    <div class="section-head section-head--center" data-reveal>
-      <p class="eyebrow eyebrow--center" style="justify-content:center">How Santa visits work</p>
-      <h2>From your booking<br>to <span class="italic-gold">the doorbell</span></h2>
-    </div>
-    <div class="steps">
-      <div class="step" data-reveal><h4>You tell us the story</h4><p>Names, ages, the school, the new puppy, the tooth that fell out in October. Every detail goes into Santa’s book.</p></div>
-      <div class="step" data-reveal data-delay="1"><h4>Santa confirms the slot</h4><p>We confirm your date, time and route by email within one working day. Nothing is charged until then.</p></div>
-      <div class="step" data-reveal data-delay="2"><h4>The workshop prepares</h4><p>Gifts are labelled, the Good List scroll is written and any extras — snow, elf, photographer — are scheduled.</p></div>
-      <div class="step" data-reveal data-delay="3"><h4>Sleigh bells at the door</h4><p>Santa arrives on time, in full costume, with a helper waiting outside. You get the photos. We disappear.</p></div>
-    </div>
-
-    <div class="stats mt-4" data-reveal>
-      <div class="stat"><span class="n"><span data-count="4200" data-suffix="+">0</span></span><span class="l">Families visited</span></div>
-      <div class="stat"><span class="n"><span data-count="310" data-suffix="+">0</span></span><span class="l">Corporate events</span></div>
-      <div class="stat"><span class="n"><span data-count="96" data-suffix="%">0</span></span><span class="l">Rebook the year after</span></div>
-      <div class="stat"><span class="n"><span data-count="17">0</span></span><span class="l">Years of Christmases</span></div>
-    </div>
-  </div>
-</section>
-
-
-<div class="env" aria-hidden="true">
-  <div class="env__layer env__layer--far" data-parallax="0.10"><svg viewBox="0 0 1440 200" preserveAspectRatio="none"><path fill="currentColor" d="M0 158C180 94 340 138 520 114S860 58 1040 102s260 46 400 14v70H0Z"/></svg></div>
-  <div class="env__layer env__layer--mid" data-parallax="0.19"><svg viewBox="0 0 1440 200" preserveAspectRatio="none"><path fill="currentColor" d="M0 172C220 118 400 162 600 138S900 90 1120 130s220 36 320 14v76H0Z"/></svg></div>
-  <div class="env__trees" data-parallax="0.27"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="currentColor" d="M-37 120 L-20 56 L-3 120 Z M34 120 L51 55 L68 120 Z M96 120 L108 71 L121 120 Z M149 120 L168 36 L186 120 Z M202 120 L214 77 L226 120 Z M263 120 L276 80 L288 120 Z M328 120 L348 44 L368 120 Z M378 120 L388 81 L398 120 Z M413 120 L425 71 L436 120 Z M444 120 L460 55 L476 120 Z M509 120 L528 52 L546 120 Z M563 120 L582 44 L601 120 Z M598 120 L627 24 L656 120 Z M676 120 L694 41 L713 120 Z M726 120 L738 65 L749 120 Z M785 120 L802 59 L820 120 Z M825 120 L852 26 L879 120 Z M871 120 L886 70 L900 120 Z M915 120 L939 25 L962 120 Z M955 120 L975 45 L996 120 Z M1010 120 L1020 77 L1031 120 Z M1075 120 L1093 38 L1111 120 Z M1127 120 L1137 76 L1146 120 Z M1190 120 L1203 72 L1215 120 Z M1241 120 L1254 71 L1268 120 Z M1277 120 L1294 45 L1310 120 Z M1333 120 L1345 70 L1356 120 Z M1397 120 L1417 35 L1437 120 Z"/></svg></div>
-  <div class="env__layer env__layer--near" data-parallax="0.36"><svg viewBox="0 0 1440 200" preserveAspectRatio="none"><path fill="currentColor" d="M0 186C240 148 460 188 700 166S1080 126 1320 162l120-6v78H0Z"/></svg></div>
-</div>
-
-<!-- ══════════════════════════════════════════════ MEET SANTA -->
-<section class="section section--alt">
-  <div class="container">
-    <div class="split">
-      <div class="split__media" data-reveal="left">
-        <span class="mask-reveal rounded depth-frame" style="display:block">
-          <img src="https://images.unsplash.com/photo-1765769168786-32dafa6d0970?auto=format&fit=crop&w=1200&q=80" alt="Santa Claus smiling warmly" loading="lazy" data-parallax="0.06">
-        </span>
-        <span class="orn orn--br" aria-hidden="true">
-          <svg viewBox="0 0 220 100" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><path d="M6 94C46 86 92 68 128 44 150 30 176 16 214 8"/><path d="M26 88l-6-16M26 88l16-4M50 79l-5-17M50 79l17-5M75 68l-4-18M75 68l17-6M100 55l-3-18M100 55l18-6M126 41l-2-18M126 41l18-5M152 29l-1-18M152 29l18-4M178 19v-17M178 19l18-3"/></svg>
-        </span>
-      </div>
-      <div class="split__body" data-reveal="right">
-        <p class="eyebrow">Meet Santa</p>
-        <h2>Same beard.<br><span class="italic-gold">Same Santa. Every year.</span></h2>
-        <p class="lead">Our Santa is not a costume hired in November. He is a trained performer with a real beard, a Garda-vetted and DBS-checked record, full public liability cover, and seventeen Christmases of knowing exactly how long to wait at a door before he knocks.</p>
-        <p class="muted">He speaks English and Maltese. He knows that a two-year-old needs Santa to sit down and a fourteen-year-old needs Santa to be in on the joke. And he has never once broken character — not for a doorbell, not for a fire alarm, not for a very determined Jack Russell in Mosta.</p>
-        <div class="tag-list">
-          <span class="tag">Real beard</span><span class="tag">Fully vetted</span><span class="tag">Public liability insured</span><span class="tag">English &amp; Maltese</span><span class="tag">17 years</span>
-        </div>
-        <div class="cta-row mt-3">
-          <a class="btn btn--outline-gold" href="about.html">Read Santa’s story</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="quote-block spot mt-4" data-reveal>
-      <p>“I do not perform Christmas. I turn up at your door, I learn your children’s names before I ring the bell, and for twenty minutes the world is exactly the way they hope it is.”</p>
-      <div class="signature" aria-hidden="true">
-        <svg viewBox="0 0 300 90" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 62c10-26 22-40 30-38s6 22-2 34-16 16-16 6 14-24 30-24 20 10 14 20-14 12-14 4 10-20 22-20c8 0 10 6 8 12"/>
-          <path d="M104 44c8-14 14-6 12 4-2 8-8 14-8 6s10-18 20-14"/>
-          <path d="M140 60c-4-24 6-40 14-40 6 0 8 8 4 16s-14 14-18 14c14 0 22 4 24 12"/>
-          <path d="M186 58c6-18 12-24 18-22 4 2 2 12-4 18-4 4-8 6-10 4 6 4 16 2 22-6"/>
-          <path d="M222 56c4-16 10-22 16-20s4 12-2 18c-4 4-8 4-10 2 6 6 18 4 26-6"/>
-          <path d="M60 76c40 8 120 8 190-4" opacity=".5"/>
-        </svg>
-      </div>
-      <p class="faint" style="font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;margin-top:.6rem">Santa · HoHoHo.mt</p>
-    </div>
-  </div>
-</section>
-
-<!--
-  ────────────────────────────────────────────────────────────────────────────
-  PLACEHOLDER CONTENT: the three testimonials below are sample copy written to
-  show the layout. Replace them with real, attributable customer reviews before
-  this site goes live.
-  ────────────────────────────────────────────────────────────────────────────
--->
-<section class="section">
-  <div class="container">
-    <div class="section-head section-head--center" data-reveal>
-      <p class="eyebrow eyebrow--center" style="justify-content:center">Family stories</p>
-      <h2>What Christmas morning<br><span class="italic-gold">sounded like</span></h2>
-    </div>
-    <div class="testi-grid">
-      <figure class="testi" data-reveal>
-        <div class="testi__stars" aria-label="5 out of 5">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
-        </div>
-        <blockquote>Sample review copy — replace before launch. Ideal length is two or three sentences about the moment the visit landed.</blockquote>
-        <figcaption class="testi__who"><span class="testi__avatar">A</span><span><span class="testi__name">Customer name</span><span class="testi__meta">Home visit · Locality</span></span></figcaption>
-      </figure>
-      <figure class="testi" data-reveal data-delay="1">
-        <div class="testi__stars" aria-label="5 out of 5">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
-        </div>
-        <blockquote>Sample review copy — replace before launch. A corporate client quote works well in this middle position.</blockquote>
-        <figcaption class="testi__who"><span class="testi__avatar">B</span><span><span class="testi__name">Customer name</span><span class="testi__meta">Corporate event · Company</span></span></figcaption>
-      </figure>
-      <figure class="testi" data-reveal data-delay="2">
-        <div class="testi__stars" aria-label="5 out of 5">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg><svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.6 7 .8-5.2 4.8 1.4 7L12 17.8 5.8 21.2l1.4-7L2 9.4l7-.8z"/></svg>
-        </div>
-        <blockquote>Sample review copy — replace before launch. A personalised video or letter review completes the set.</blockquote>
-        <figcaption class="testi__who"><span class="testi__avatar">C</span><span><span class="testi__name">Customer name</span><span class="testi__meta">Santa video · Location</span></span></figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════ GALLERY -->
-<section class="section section--alt" id="gallery">
-  <div class="container container--wide">
-    <div class="section-head section-head--split">
-      <div data-reveal>
-        <p class="eyebrow">Christmas gallery</p>
-        <h2>Seventeen Decembers,<br><span class="italic-gold">one frame at a time</span></h2>
-      </div>
-      <p class="lead" data-reveal data-delay="1">Living rooms, school halls, office parties and one memorable rooftop in Sliema.</p>
-    </div>
-    <div class="gallery" data-reveal>
-      <a class="g-big" href="https://images.unsplash.com/photo-1481481525014-91e77115eace?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="A first meeting with Santa"><img src="https://images.unsplash.com/photo-1481481525014-91e77115eace?auto=format&fit=crop&w=900&q=75" alt="A toddler meeting Santa Claus" loading="lazy"></a>
-      <a href="https://images.unsplash.com/photo-1544546491-1ecfecfcc75a?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="Christmas morning at home"><img src="https://images.unsplash.com/photo-1544546491-1ecfecfcc75a?auto=format&fit=crop&w=600&q=70" alt="A mother and daughter hugging in front of a Christmas tree" loading="lazy"></a>
-      <a href="https://images.unsplash.com/photo-1482638591678-a11589a805f2?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="Waiting by the tree"><img src="https://images.unsplash.com/photo-1482638591678-a11589a805f2?auto=format&fit=crop&w=600&q=70" alt="A child standing in front of a Christmas tree with string lights" loading="lazy"></a>
-      <a class="g-wide" href="https://images.unsplash.com/photo-1543721578-b7ee30f88d08?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="Decorating the tree together"><img src="https://images.unsplash.com/photo-1543721578-b7ee30f88d08?auto=format&fit=crop&w=900&q=75" alt="Two children decorating a Christmas tree" loading="lazy"></a>
-      <a href="https://images.unsplash.com/photo-1577721174006-98a67a796931?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="Gingerbread afternoon"><img src="https://images.unsplash.com/photo-1577721174006-98a67a796931?auto=format&fit=crop&w=600&q=70" alt="Adults and children building a gingerbread house" loading="lazy"></a>
-      <a href="https://images.unsplash.com/photo-1699727972030-32d6165ac4fb?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="The night before"><img src="https://images.unsplash.com/photo-1699727972030-32d6165ac4fb?auto=format&fit=crop&w=600&q=70" alt="A little girl beside a Christmas tree" loading="lazy"></a>
-      <a class="g-tall" href="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="The sleigh team"><img src="https://images.unsplash.com/photo-1514773896690-40d0fd46f143?auto=format&fit=crop&w=700&q=75" alt="A reindeer pulling a sled through snow" loading="lazy"></a>
-      <a class="g-wide" href="https://images.unsplash.com/photo-1515550876960-32120e56fc3d?auto=format&fit=crop&w=1600&q=80" data-lightbox data-caption="A room ready for Santa"><img src="https://images.unsplash.com/photo-1515550876960-32120e56fc3d?auto=format&fit=crop&w=900&q=75" alt="A Christmas tree beside a fireplace" loading="lazy"></a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════ FAQ TEASER -->
-<section class="section">
-  <div class="container container--narrow">
-    <div class="section-head section-head--center" data-reveal>
-      <p class="eyebrow eyebrow--center" style="justify-content:center">Before you book</p>
-      <h2>The questions<br>every <span class="italic-gold">parent asks</span></h2>
-    </div>
-    <div class="faq" data-reveal>
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">How far in advance should I book a home visit?<span class="faq__icon" aria-hidden="true"></span></button>
-        <div class="faq__a"><div class="faq__a-inner"><p>For the 18th–24th of December we are usually fully booked by early November. For any other date in December, two to three weeks is comfortable. If you are reading this late, call us anyway — we hold a small number of emergency slots every year for exactly that reason.</p></div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">Do you cover Gozo?<span class="faq__icon" aria-hidden="true"></span></button>
-        <div class="faq__a"><div class="faq__a-inner"><p>Yes. Santa crosses on set days in December so that Gozo visits can be grouped into one route. Choose a Gozo locality in the booking journey and we will show you the available crossing dates. A ferry supplement applies and is confirmed before anything is charged.</p></div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">Can Santa bring our own presents?<span class="faq__icon" aria-hidden="true"></span></button>
-        <div class="faq__a"><div class="faq__a-inner"><p>Absolutely — and most families do. Leave the wrapped gifts with a neighbour, in the boot of your car or by the front door, labelled with each child’s name. Santa collects them discreetly on arrival. If you would rather we handle it, wrapped gifts from Santa can be added to any booking.</p></div></div>
-      </div>
-      <div class="faq__item">
-        <button class="faq__q" type="button" aria-expanded="false">What if my child is nervous?<span class="faq__icon" aria-hidden="true"></span></button>
-        <div class="faq__a"><div class="faq__a-inner"><p>Tell us in the booking notes. Santa will stay by the door, sit down at their level and let the child come to him — never the other way round. We have done hundreds of visits with shy toddlers and children with sensory sensitivities, and no visit has ever needed to be cut short.</p></div></div>
-      </div>
-    </div>
-    <div class="cta-row cta-row--center mt-3" data-reveal>
-      <a class="btn btn--outline-gold" href="faq.html">Read all frequently asked questions</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════ FINAL CTA -->
-<section class="cta-band">
-  <div class="cta-band__bg" style="background-image:url('https://images.unsplash.com/photo-1610400131057-851685802145?auto=format&fit=crop&w=2000&q=80')" data-parallax="0.12" aria-hidden="true"></div>
-  <div class="cta-band__scrim" aria-hidden="true"></div>
-  <div class="star-field" data-stars="24" aria-hidden="true"></div>
-  <div class="container container--narrow z1">
-    <p class="eyebrow eyebrow--center" style="justify-content:center" data-reveal>Christmas 2026</p>
-    <h2 data-reveal data-delay="1">There are only<br><span class="italic-gold">twenty-four evenings</span><br>in December.</h2>
-    <p class="lead lead--center mt-2" data-reveal data-delay="2">Christmas Eve slots are released once a year and they go quickly. Book your visit, order a film, or send a letter — Santa is taking the diary out now.</p>
-    <div class="cta-row cta-row--center mt-3" data-reveal data-delay="3">
-      <a class="btn btn--gold btn--lg" href="book.html">Book Santa <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-      <a class="btn btn--ghost btn--lg" href="shop.html">Shop Christmas gifts</a>
     </div>
   </div>
 </section>
