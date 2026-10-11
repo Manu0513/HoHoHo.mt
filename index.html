@@ -722,6 +722,8 @@ form.done .form__ok{display:block}
 .feature__body .eyebrow{margin:0;color:var(--cream-300)}
 .feature__body h3{color:var(--cream);font-size:clamp(1.5rem,2.4vw,2.1rem);font-weight:900;line-height:1.1}
 .feature__body h3 .deco{font-weight:400;color:var(--cream-300);font-size:1.1em}
+.feature--burgundy{background:var(--burgundy)}
+.feature--burgundy .feature__img::after{background:linear-gradient(90deg,transparent 60%,var(--burgundy))}
 .feature__price{font-size:.9rem}
 .feature__price strong{color:var(--cream);font-size:1.15rem}
 
@@ -1025,6 +1027,7 @@ form.done .form__ok{display:block}
   .feature{grid-template-columns:1fr}
   .feature__img{min-height:220px}
   .feature__img::after{background:linear-gradient(0deg,var(--green),transparent 50%)}
+  .feature--burgundy .feature__img::after{background:linear-gradient(0deg,var(--burgundy),transparent 50%)}
   .products{gap:.75rem}
   .prod__body{padding:.85rem .85rem 1rem}
   .prod__desc{display:none}
@@ -1181,6 +1184,7 @@ form.done .form__ok{display:block}
     <symbol id="i-toy" viewBox="0 0 32 32"><circle cx="16" cy="12" r="5.5"/><circle cx="10.6" cy="7.4" r="2.2"/><circle cx="21.4" cy="7.4" r="2.2"/><path d="M10 27.5c0-5 2.6-8.4 6-8.4s6 3.4 6 8.4z"/><path class="acc" d="m13.6 18.4 2.4 1.2 2.4-1.2v2.6L16 19.8l-2.4 1.2z"/><circle cx="14" cy="11.5" r=".5" fill="currentColor"/><circle cx="18" cy="11.5" r=".5" fill="currentColor"/></symbol>
     <symbol id="i-brownie" viewBox="0 0 32 32"><path d="M4 17.5 16 12l12 5.5L16 23z"/><path d="M4 17.5v4L16 27l12-5.5v-4"/><path d="M16 23v4"/><circle class="acc" cx="14.6" cy="15.6" r="1.3"/><circle class="acc" cx="17.4" cy="15.2" r="1.3"/><path d="M16 14.2c.6-1.8 2-2.8 3.8-3"/></symbol>
     <symbol id="i-stamp" viewBox="0 0 32 32"><path d="M6 4h20v24H6z" stroke-dasharray="2 1.6"/><rect x="9.5" y="7.5" width="13" height="12" rx="1"/><path class="acc" d="m16 9.8 1.2 2.6 2.8.3-2.1 1.9.6 2.8-2.5-1.4-2.5 1.4.6-2.8-2.1-1.9 2.8-.3z"/><path d="M10 23.5h12"/></symbol>
+    <symbol id="i-embroidery" viewBox="0 0 32 32"><circle cx="15" cy="17" r="11"/><circle cx="15" cy="17" r="8" stroke-dasharray="2 1.8"/><path d="M12 6V3.5h6V6"/><path class="acc" d="m15 12.2 1.3 2.8 3 .4-2.2 2.1.6 3-2.7-1.5-2.7 1.5.6-3-2.2-2.1 3-.4z"/><path d="m22 21 7 7"/><path d="M28.5 26.5c1.4 1.4 1.4 3-.2 3.4"/></symbol>
     <symbol id="i-crib" viewBox="0 0 32 32"><path d="M4 15 16 6l12 9"/><path d="M7 13v14M25 13v14M4 27h24"/><path d="M11 23h10l-1.4 4h-7.2z"/><path class="acc" d="m16 1.6.7 1.6 1.7.2-1.3 1.1.4 1.7-1.5-.9-1.5.9.4-1.7-1.3-1.1 1.7-.2z"/></symbol>
     <symbol id="i-school" viewBox="0 0 32 32"><path d="M3 12 16 6l13 6-13 6z"/><path d="M8 14.5V21c0 2 3.6 4 8 4s8-2 8-4v-6.5"/><path class="acc" d="M27 13v7" fill="none"/><circle class="acc" cx="27" cy="21.5" r="1.4"/></symbol>
     <symbol id="i-briefcase" viewBox="0 0 32 32"><rect x="4" y="10" width="24" height="16" rx="2.5"/><path d="M12 10V7.5A1.5 1.5 0 0 1 13.5 6h5A1.5 1.5 0 0 1 20 7.5V10"/><path d="M4 17h24"/><rect class="acc" x="14" y="15" width="4" height="4" rx="1"/></symbol>
@@ -1268,7 +1272,7 @@ form.done .form__ok{display:block}
                 <a class="mega__link" href="#/store/toys" data-filter-link="toys"><span class="mega__icon"><svg class="icon"><use href="#i-toy"/></svg></span><span><strong>Christmas toys</strong><span>Classic &amp; wooden</span></span></a>
                 <a class="mega__link" href="#/store/brownies" data-filter-link="brownies"><span class="mega__icon"><svg class="icon"><use href="#i-brownie"/></svg></span><span><strong>Brownies</strong><span>Baked fresh in December</span></span></a>
                 <a class="mega__link" href="#/store/cribs" data-filter-link="cribs"><span class="mega__icon"><svg class="icon"><use href="#i-crib"/></svg></span><span><strong>Cribs</strong><span>Small nativity cribs</span></span></a>
-                <a class="mega__link" href="#/store/stamps" data-filter-link="stamps"><span class="mega__icon"><svg class="icon"><use href="#i-stamp"/></svg></span><span><strong>Stamps</strong><span>North Pole post</span></span></a>
+                <a class="mega__link" href="#/store/embroidery" data-filter-link="embroidery"><span class="mega__icon"><svg class="icon"><use href="#i-embroidery"/></svg></span><span><strong>Embroidery</strong><span>Personalised &amp; hand-stitched</span></span></a>
               </div>
               <div class="mega__foot"><a class="link-arrow" href="#/store" data-nav="store">Browse the whole store <svg class="icon"><use href="#i-arrow"/></svg></a></div>
             </div>
@@ -1341,7 +1345,7 @@ form.done .form__ok{display:block}
           <li><a href="#/store/toys" data-filter-link="toys">Christmas toys</a></li>
           <li><a href="#/store/brownies" data-filter-link="brownies">Brownies</a></li>
           <li><a href="#/store/cribs" data-filter-link="cribs">Cribs</a></li>
-          <li><a href="#/store/stamps" data-filter-link="stamps">Stamps</a></li>
+          <li><a href="#/store/embroidery" data-filter-link="embroidery">Embroidery</a></li>
         </ul>
       </details>
       <details class="m-group">
@@ -1411,7 +1415,7 @@ window.addEventListener('error', function (e) {
       </div>
       <div class="fcol">
         <h4>Christmas Store</h4>
-        <ul><li><a href="#/store/hampers">Hampers</a></li><li><a href="#/store/toys">Christmas toys</a></li><li><a href="#/store/brownies">Brownies</a></li><li><a href="#/store/cribs">Cribs</a></li><li><a href="#/store/stamps">Stamps</a></li></ul>
+        <ul><li><a href="#/store/hampers">Hampers</a></li><li><a href="#/store/toys">Christmas toys</a></li><li><a href="#/store/brownies">Brownies</a></li><li><a href="#/store/cribs">Cribs</a></li><li><a href="#/store/embroidery">Embroidery</a></li></ul>
       </div>
       <div class="fcol">
         <h4>HoHoHo.mt</h4>
@@ -1498,7 +1502,7 @@ window.addEventListener('error', function (e) {
       <div class="hero__content">
         <p class="eyebrow" data-rise>Christmas 2026 · Malta &amp; Gozo</p>
         <h1 id="hero-title" data-rise style="--d:1">Bring Santa home this <span class="deco">Christmas.</span></h1>
-        <p class="lead" data-rise style="--d:2">Home visits, personal videos and letters from Santa, plus hampers, toys and small nativity cribs. Everything you need for a Christmas your family will remember.</p>
+        <p class="lead" data-rise style="--d:2">Home visits, personal videos and letters from Santa, plus hampers, toys, small nativity cribs and personalised embroidery. Everything you need for a Christmas your family will remember.</p>
         <div class="cta-row" data-rise style="--d:3">
           <a class="btn btn--light" href="#/book-santa">Book a Santa visit <svg class="icon arrow"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--ghost" href="#/store">Shop the Christmas Store</a>
@@ -1542,7 +1546,7 @@ window.addEventListener('error', function (e) {
         <article class="card card--link" data-reveal style="--d:0"><span class="ic"><svg class="icon"><use href="#i-hamper"/></svg></span><h3>Hampers</h3><p>Generous festive hampers for family, friends and teams.</p><a class="link-arrow" href="#/store/hampers">Shop hampers <svg class="icon"><use href="#i-arrow"/></svg></a></article>
         <article class="card card--link" data-reveal style="--d:1"><span class="ic"><svg class="icon"><use href="#i-toy"/></svg></span><h3>Toys</h3><p>Classic, beautifully made toys, straight from Santa's workshop.</p><a class="link-arrow" href="#/store/toys">Shop toys <svg class="icon"><use href="#i-arrow"/></svg></a></article>
         <article class="card card--link" data-reveal style="--d:2"><span class="ic"><svg class="icon"><use href="#i-brownie"/></svg></span><h3>Brownies</h3><p>Rich Christmas brownies, baked fresh and gift-boxed.</p><a class="link-arrow" href="#/store/brownies">Shop brownies <svg class="icon"><use href="#i-arrow"/></svg></a></article>
-        <article class="card card--link" data-reveal style="--d:3"><span class="ic"><svg class="icon"><use href="#i-stamp"/></svg></span><h3>Stamps</h3><p>Collectable North Pole stamps to make every letter official.</p><a class="link-arrow" href="#/store/stamps">Shop stamps <svg class="icon"><use href="#i-arrow"/></svg></a></article>
+        <article class="card card--link" data-reveal style="--d:3"><span class="ic"><svg class="icon"><use href="#i-embroidery"/></svg></span><h3>Embroidery</h3><p>Personalised stockings and hand-stitched keepsakes, with their name on.</p><a class="link-arrow" href="#/store/embroidery">Shop embroidery <svg class="icon"><use href="#i-arrow"/></svg></a></article>
       </div>
     </div>
   </div>
@@ -1901,7 +1905,7 @@ window.addEventListener('error', function (e) {
         <li><svg class="icon"><use href="#i-check"/></svg>Posted to your door within 3 working days</li>
       </ul>
       <p class="price"><strong>€14.99</strong>per letter</p>
-      <div class="cta-row"><a class="btn" href="#/book-santa?experience=letter">Order a letter <svg class="icon arrow"><use href="#i-arrow"/></svg></a><a class="btn btn--ghost" href="#/store/stamps">Add stamps</a></div>
+      <div class="cta-row"><a class="btn" href="#/book-santa?experience=letter">Order a letter <svg class="icon arrow"><use href="#i-arrow"/></svg></a><a class="btn btn--ghost" href="#/store">Add a gift</a></div>
     </div>
   </div>
 </section>
@@ -2033,7 +2037,7 @@ window.addEventListener('error', function (e) {
 </section>
 
 </template>
-<template id="page-store" data-title="Christmas Store · Hampers, Toys, Brownies, Cribs &amp; Stamps · HoHoHo.mt" data-body="dark-top" data-page="store" data-hdr="dark">
+<template id="page-store" data-title="Christmas Store · Hampers, Toys, Brownies, Cribs &amp; Embroidery · HoHoHo.mt" data-body="dark-top" data-page="store" data-hdr="dark">
 
 
 <!-- ════════════════════════════════════════════════ HERO -->
@@ -2046,7 +2050,7 @@ window.addEventListener('error', function (e) {
         <nav class="crumbs" aria-label="Breadcrumb" data-rise><a href="#/">Home</a><span aria-hidden="true">/</span><span>Christmas Store</span></nav>
         <p class="eyebrow" data-rise style="--d:1">The Christmas Store</p>
         <h1 class="phero-title" id="page-title" data-rise style="--d:2;font-size:var(--fs-page);font-weight:900;line-height:1;letter-spacing:-.035em">Gifts from <span class="deco">Santa's workshop.</span></h1>
-        <p class="lead" data-rise style="--d:3;margin-top:1.25rem">Hampers, classic toys, fresh brownies, small nativity cribs and North Pole stamps. Delivered across Malta and Gozo, or tucked into Santa's sack for your visit.</p>
+        <p class="lead" data-rise style="--d:3;margin-top:1.25rem">Hampers, classic toys, fresh brownies, small nativity cribs and personalised embroidery. Delivered across Malta and Gozo, or tucked into Santa's sack for your visit.</p>
         <div class="cta-row" data-rise style="--d:4;margin-top:2rem">
           <a class="btn btn--light" href="#shop">Start shopping <svg class="icon arrow"><use href="#i-arrow"/></svg></a>
           <a class="btn btn--ghost" href="#santa-delivers">Add to a Santa visit</a>
@@ -2063,7 +2067,7 @@ window.addEventListener('error', function (e) {
       <a class="cat-tile" href="#toys" data-filter-link="toys"><img src="https://images.unsplash.com/photo-1674103389691-c2fc6b0b8356?auto=format&fit=crop&w=500&q=65" alt="" loading="lazy"><span><span>Christmas toys<small>From €24</small></span><svg class="icon"><use href="#i-arrow"/></svg></span></a>
       <a class="cat-tile" href="#brownies" data-filter-link="brownies"><img src="https://images.unsplash.com/photo-1515037893149-de7f840978e2?auto=format&fit=crop&w=500&q=65" alt="" loading="lazy"><span><span>Brownies<small>From €12</small></span><svg class="icon"><use href="#i-arrow"/></svg></span></a>
       <a class="cat-tile" href="#cribs" data-filter-link="cribs"><img src="https://images.unsplash.com/photo-1670757171063-880d2b872161?auto=format&fit=crop&w=500&q=65" alt="" loading="lazy"><span><span>Cribs<small>From €34</small></span><svg class="icon"><use href="#i-arrow"/></svg></span></a>
-      <a class="cat-tile" href="#stamps" data-filter-link="stamps"><img src="https://images.unsplash.com/photo-1767226633782-e49be94287fb?auto=format&fit=crop&w=500&q=65" alt="" loading="lazy"><span><span>Stamps<small>From €6</small></span><svg class="icon"><use href="#i-arrow"/></svg></span></a>
+      <a class="cat-tile" href="#embroidery" data-filter-link="embroidery"><img src="https://images.unsplash.com/photo-1622378134706-4a2194cc9648?auto=format&fit=crop&w=500&q=65" alt="" loading="lazy"><span><span>Embroidery<small>From €26</small></span><svg class="icon"><use href="#i-arrow"/></svg></span></a>
     </div>
   </div>
 </section>
@@ -2071,7 +2075,7 @@ window.addEventListener('error', function (e) {
 <!-- ════════════════════════════════════════════════ SHOP
      Product names and prices are placeholders for review. -->
 <section class="sheet sheet--cream grain z2" id="shop" aria-labelledby="shop-title">
-  <span id="hampers" class="sr-only"></span><span id="toys" class="sr-only"></span><span id="brownies" class="sr-only"></span><span id="cribs" class="sr-only"></span><span id="stamps" class="sr-only"></span>
+  <span id="hampers" class="sr-only"></span><span id="toys" class="sr-only"></span><span id="brownies" class="sr-only"></span><span id="cribs" class="sr-only"></span><span id="embroidery" class="sr-only"></span>
   <div class="ornaments" aria-hidden="true">
     <svg class="orn" width="34" height="130" viewBox="0 0 34 130"><path d="M17 0v90" stroke="#b8a77c" stroke-width="1"/><rect x="12" y="86" width="10" height="7" rx="1.5" fill="#b8a77c"/><circle cx="17" cy="110" r="17" fill="url(#ob)"/></svg>
     <svg class="orn" width="28" height="84" viewBox="0 0 28 84"><path d="M14 0v50" stroke="#b8a77c" stroke-width="1"/><rect x="10" y="47" width="8" height="6" rx="1.5" fill="#b8a77c"/><circle cx="14" cy="68" r="14" fill="url(#og)"/>
@@ -2091,7 +2095,7 @@ window.addEventListener('error', function (e) {
         <button class="chip" type="button" data-filter="toys" aria-pressed="false">Christmas toys</button>
         <button class="chip" type="button" data-filter="brownies" aria-pressed="false">Brownies</button>
         <button class="chip" type="button" data-filter="cribs" aria-pressed="false">Cribs</button>
-        <button class="chip" type="button" data-filter="stamps" aria-pressed="false">Stamps</button>
+        <button class="chip" type="button" data-filter="embroidery" aria-pressed="false">Embroidery</button>
       </div>
       <label class="sort">Sort by
         <select data-sort><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select>
@@ -2109,7 +2113,18 @@ window.addEventListener('error', function (e) {
       </div>
     </article>
 
-    <p class="result-count" data-result-count aria-live="polite">15 gifts</p>
+    <article class="feature feature--burgundy" data-only="all embroidery" data-reveal>
+      <div class="feature__img"><img src="https://images.unsplash.com/photo-1622378134706-4a2194cc9648?auto=format&fit=crop&w=1100&q=70" alt="A floral wreath embroidered in a wooden hoop" loading="lazy" data-zoom></div>
+      <div class="feature__body">
+        <p class="eyebrow">Made with their name on</p>
+        <h3>Personalised embroidery, <span class="deco">stitched for your family</span></h3>
+        <p>Stockings, keepsake hoops and gifts embroidered with a name and a year. Each piece is made to order, so it becomes part of your Christmas for years to come.</p>
+        <p class="feature__price">From <strong>€26</strong></p>
+        <div class="cta-row"><button class="btn btn--light" type="button" data-filter-link="embroidery">Shop embroidery <svg class="icon arrow"><use href="#i-arrow"/></svg></button></div>
+      </div>
+    </article>
+
+    <p class="result-count" data-result-count aria-live="polite">16 gifts</p>
     <div class="products" data-products>
       <!-- Hampers -->
       <article class="prod" data-cat="hampers" data-id="hamper-grand" data-name="The Grand Festive Hamper" data-price="129">
@@ -2163,18 +2178,22 @@ window.addEventListener('error', function (e) {
         <div class="prod__img"><img src="https://images.unsplash.com/photo-1670757171063-880d2b872161?auto=format&fit=crop&w=600&q=70" alt="A carved wooden nativity with a star" loading="lazy" width="600" height="600"></div>
         <div class="prod__body"><span class="prod__cat">Cribs</span><h3 class="prod__name">Carved Star Nativity</h3><p class="prod__desc">One-piece carving with guiding star.</p><div class="prod__foot"><span class="prod__price">€45.00</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
       </article>
-      <!-- Stamps -->
-      <article class="prod" data-cat="stamps" data-id="stamps-np" data-name="North Pole Stamp Set" data-price="9.5">
-        <div class="prod__img"><img src="https://images.unsplash.com/photo-1767226633828-e2dd5ad72fe6?auto=format&fit=crop&w=600&q=70" alt="Vintage Christmas postage stamps" loading="lazy" width="600" height="600"></div>
-        <div class="prod__body"><span class="prod__cat">Stamps</span><h3 class="prod__name">North Pole Stamp Set</h3><p class="prod__desc">Ten collectable Christmas stamps.</p><div class="prod__foot"><span class="prod__price">€9.50</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
+      <!-- Embroidery -->
+      <article class="prod" data-cat="embroidery" data-id="emb-stocking" data-name="Personalised Embroidered Stocking" data-price="26">
+        <div class="prod__img"><img src="https://images.unsplash.com/photo-1607900177462-ac553f1f5d97?auto=format&fit=crop&w=600&q=70" alt="A Christmas stocking with a name stitched on it" loading="lazy" width="600" height="600"><span class="tag">Bestseller</span></div>
+        <div class="prod__body"><span class="prod__cat">Embroidery</span><h3 class="prod__name">Personalised Embroidered Stocking</h3><p class="prod__desc">Their name stitched in cream thread.</p><div class="prod__foot"><span class="prod__price">€26.00</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
       </article>
-      <article class="prod" data-cat="stamps" data-id="stamps-vintage" data-name="Vintage Greetings Collection" data-price="14">
-        <div class="prod__img"><img src="https://images.unsplash.com/photo-1767226633782-e49be94287fb?auto=format&fit=crop&w=600&q=70" alt="A collection of vintage Christmas and greeting stamps" loading="lazy" width="600" height="600"></div>
-        <div class="prod__body"><span class="prod__cat">Stamps</span><h3 class="prod__name">Vintage Greetings Collection</h3><p class="prod__desc">Twenty classic designs in a folder.</p><div class="prod__foot"><span class="prod__price">€14.00</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
+      <article class="prod" data-cat="embroidery" data-id="emb-family" data-name="Family Stocking Set (4)" data-price="89">
+        <div class="prod__img"><img src="https://images.unsplash.com/photo-1670000015781-9657fdf061d5?auto=format&fit=crop&w=600&q=70" alt="A row of matching red and cream Christmas stockings" loading="lazy" width="600" height="600"></div>
+        <div class="prod__body"><span class="prod__cat">Embroidery</span><h3 class="prod__name">Family Stocking Set (4)</h3><p class="prod__desc">Four matching stockings, names included.</p><div class="prod__foot"><span class="prod__price">€89.00</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
       </article>
-      <article class="prod" data-cat="stamps" data-id="stamps-single" data-name="Santa's Seal Stamp Sheet" data-price="6">
-        <div class="prod__img"><img src="https://images.unsplash.com/photo-1767226633818-25f4db99a050?auto=format&fit=crop&w=600&q=70" alt="Close-up of a vintage Christmas postage stamp" loading="lazy" width="600" height="600"></div>
-        <div class="prod__body"><span class="prod__cat">Stamps</span><h3 class="prod__name">Santa's Seal Stamp Sheet</h3><p class="prod__desc">Stickers for letters to the North Pole.</p><div class="prod__foot"><span class="prod__price">€6.00</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
+      <article class="prod" data-cat="embroidery" data-id="emb-wreath" data-name="Hand-Embroidered Wreath Hoop" data-price="34">
+        <div class="prod__img"><img src="https://images.unsplash.com/photo-1622378134706-4a2194cc9648?auto=format&fit=crop&w=600&q=70" alt="A floral wreath embroidered in a wooden hoop" loading="lazy" width="600" height="600"><span class="tag tag--green">New</span></div>
+        <div class="prod__body"><span class="prod__cat">Embroidery</span><h3 class="prod__name">Hand-Embroidered Wreath Hoop</h3><p class="prod__desc">A framed keepsake, 20 cm hoop.</p><div class="prod__foot"><span class="prod__price">€34.00</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
+      </article>
+      <article class="prod" data-cat="embroidery" data-id="emb-name-hoop" data-name="Name &amp; Year Keepsake Hoop" data-price="29">
+        <div class="prod__img"><img src="https://images.unsplash.com/photo-1570073141869-2b9947394c95?auto=format&fit=crop&w=600&q=70" alt="A wooden embroidery hoop decorated with flowers" loading="lazy" width="600" height="600"></div>
+        <div class="prod__body"><span class="prod__cat">Embroidery</span><h3 class="prod__name">Name &amp; Year Keepsake Hoop</h3><p class="prod__desc">Name and Christmas year, hand-stitched.</p><div class="prod__foot"><span class="prod__price">€29.00</span><button class="add" type="button" data-add><svg class="icon"><use href="#i-plus"/></svg>Add to basket</button></div></div>
       </article>
     </div>
 
@@ -3654,7 +3673,7 @@ window.HoHoHo.nightSky = function () {
   function jump(y) { var html = D.documentElement; html.style.scrollBehavior = 'auto'; scrollTo(0, y); html.style.scrollBehavior = ''; }
   function toAnchor(anchor, smooth) {
     if (!anchor) return;
-    if (current === 'store' && HoHoHo.setFilter && ['hampers', 'toys', 'brownies', 'cribs', 'stamps'].indexOf(anchor) > -1) { HoHoHo.setFilter(anchor, true); return; }
+    if (current === 'store' && HoHoHo.setFilter && ['hampers', 'toys', 'brownies', 'cribs', 'embroidery'].indexOf(anchor) > -1) { HoHoHo.setFilter(anchor, true); return; }
     var t = D.getElementById(anchor); if (!t) return;
     if (smooth && !reduce) { t.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
     // Arriving from another page: jump, then correct once images and fonts have settled the layout
