@@ -3319,7 +3319,7 @@ window.HoHoHo.nightSky = function () {
       var mobile = vw < 769;
       baseScale = Math.max(150, Math.min(400, vw * (mobile ? .55 : .27))) / RIG_W;
       P = mobile
-        ? [[-.25 * vw, my + .16 * vh], [.25 * vw, my + .08 * vh], [mx - .02 * vw, my + .015 * vh], [1.35 * vw, my - .12 * vh]]
+        ? [[-.08 * vw, my + .16 * vh], [.25 * vw, my + .08 * vh], [mx - .02 * vw, my + .015 * vh], [1.35 * vw, my - .12 * vh]]
         : [[.2 * vw, my + .2 * vh], [.46 * vw, my + .1 * vh], [mx - .1 * vw, my + .02 * vh], [vw + RIG_W * baseScale * .9, my - .1 * vh]];
       /* Arc-length-ish lookup with a gentle slowdown as the sleigh crosses the moon */
       table = []; var acc = 0, N = 400, cross = nearestT(mx, my);
@@ -3352,15 +3352,15 @@ window.HoHoHo.nightSky = function () {
       return bob;
     }
 
-    var FLIGHT = 18, REST = 10, CYCLE = FLIGHT + REST, start = null;
+    var FLIGHT = 12, REST = 8, CYCLE = FLIGHT + REST, start = null;
     function frame(t) {
-      if (start === null) start = t - FLIGHT * .02 + 1.2;   // first pass begins shortly after load
+      if (start === null) start = t - FLIGHT * .05;   // the first pass is already under way on the first frame
       var local = (t - start) % CYCLE;
       if (local < 0 || local > FLIGHT) { rig.setAttribute('opacity', 0); return; }
       var s = local / FLIGHT, u = timeToU(s), p = bez(u), q = bez(Math.min(1, u + .01));
       var ang = Math.atan2(q[1] - p[1], q[0] - p[0]) * 57.3 * .55;
       var sc = baseScale * lerp(.62, 1.06, s);
-      var alpha = smooth(0, .14, s) * (1 - smooth(.97, 1, s));
+      var alpha = smooth(0, .08, s) * (1 - smooth(.97, 1, s));
       var drift = Math.sin(t * .9) * 3;
       rig.setAttribute('opacity', alpha.toFixed(3));
       rig.setAttribute('transform', 'translate(' + p[0].toFixed(1) + ',' + (p[1] + drift).toFixed(1) + ') rotate(' + ang.toFixed(2) + ') scale(' + sc.toFixed(4) + ') translate(' + (-RIG_CX) + ',' + (-RIG_CY) + ')');
