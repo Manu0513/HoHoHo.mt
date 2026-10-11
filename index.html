@@ -3354,13 +3354,13 @@ window.HoHoHo.nightSky = function () {
 
     var FLIGHT = 12, REST = 8, CYCLE = FLIGHT + REST, start = null;
     function frame(t) {
-      if (start === null) start = t - FLIGHT * .05;   // the first pass is already under way on the first frame
+      if (start === null) start = t - FLIGHT * .14;   // the first pass is already well under way on the first frame
       var local = (t - start) % CYCLE;
       if (local < 0 || local > FLIGHT) { rig.setAttribute('opacity', 0); return; }
       var s = local / FLIGHT, u = timeToU(s), p = bez(u), q = bez(Math.min(1, u + .01));
       var ang = Math.atan2(q[1] - p[1], q[0] - p[0]) * 57.3 * .55;
       var sc = baseScale * lerp(.62, 1.06, s);
-      var alpha = smooth(0, .08, s) * (1 - smooth(.97, 1, s));
+      var alpha = smooth(0, .05, s) * (1 - smooth(.97, 1, s));
       var drift = Math.sin(t * .9) * 3;
       rig.setAttribute('opacity', alpha.toFixed(3));
       rig.setAttribute('transform', 'translate(' + p[0].toFixed(1) + ',' + (p[1] + drift).toFixed(1) + ') rotate(' + ang.toFixed(2) + ') scale(' + sc.toFixed(4) + ') translate(' + (-RIG_CX) + ',' + (-RIG_CY) + ')');
@@ -3391,6 +3391,7 @@ window.HoHoHo.nightSky = function () {
       return;
     }
     frameFns.push(frame);
+    frame(W.performance.now() / 1000);   // draw the first frame straight away rather than on the next tick
   })();
 
   kick();
